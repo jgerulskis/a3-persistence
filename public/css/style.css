@@ -1,0 +1,122 @@
+/*
+FORMS
+*/
+input[type=text].eventCreationField {
+    border-radius: 10px;
+    color: #ffffff;
+    background: rgba(9, 28, 23, 0.5);;
+    opacity: 70%;
+    width: 70%;
+    height: 35px;
+    margin: 10px auto;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    outline: none;
+    text-align: center;
+    position: relative;
+    left: 15%;
+}
+
+input[type=text].eventCreationField::placeholder {
+    color: #cecece;
+}
+
+button.submit {
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: #091c17;
+    width: 70%;
+    height: 35px;
+    margin: 10px auto;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    text-align: center;
+    position: relative;
+    left: 15%;
+}
+
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange, .flatpickr-day.selected.inRange, .flatpickr-day.startRange.inRange, .flatpickr-day.endRange.inRange,
+ .flatpickr-day.selected:focus, .flatpickr-day.startRange:focus, .flatpickr-day.endRange:focus, .flatpickr-day.selected:hover, .flatpickr-day.startRange:hover, .flatpickr-day.endRange:hover, 
+ .flatpickr-day.selected.prevMonthDay, .flatpickr-day.startRange.prevMonthDay, .flatpickr-day.endRange.prevMonthDay, .flatpickr-day.selected.nextMonthDay, .flatpickr-day.startRange.nextMonthDay, 
+ .flatpickr-day.endRange.nextMonthDay{
+    background: #091c17 !important;
+}
+
+/* Nav Bar (Bootstrap) */
+.bg-light {
+    background-color: #091c17 !important;
+}
+
+a.nav-link {
+    color: aqua !important;
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+a.nav-link:hover {
+    color:#87ceeb !important;
+}
+
+.navbarLogo {
+    height: 60px;
+    width: auto;
+}
+
+/*Index.html banner logo*/
+.bannerLogo {
+    margin: 40px;
+    width: 40%;
+    height: auto;
+    margin-left: 30%;
+    position: relative;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(aqua, blue);
+}
+
+/* Event Viewer */
+table.eventTable {
+    border: 3px solid #091c17;
+    width: 95%;
+    position: relative;
+    left: 2.5%;
+}
+
+th {
+    border: 2px solid #091c17;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    border: 1px solid #091c17;
+}
+
+tr {
+    background-color: #ffffff;   
+}
+
+td:hover {
+    background-color: grey !important;
+}
+
+.eventName {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px;
+    margin-left: 2.5%;
+}
+
+.instructions {
+    font-size: 24px;
+    margin: 10px;
+    margin-left: 2.5%;
+}

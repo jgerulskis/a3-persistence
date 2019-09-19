@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>When To Meet</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/themes/airbnb.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+
+    <div id="nav-placeholder"></div>
+
+    <img src="assets/banner_logo.png" class="bannerLogo">
+
+    <div class="instructions"><div class="instructions"><b>How to use:</b> <br><br> 
+        <i>Creating an Event</i> <br>
+        1.) Give your event a name <br>
+        2.) Select a potential date range for your event <br>
+        3.) Select a start time, will be displayed in military <br>
+        4.) Select an end time, will be displayed in military <br>
+        5.) Select "Create Event", you will be redirected to your events viewing / planning page <br>
+        6.) Share the link to the viewing / planning page with your team <br><br>
+        <i>Adding and Viewing Availablity</i> <br>
+        1.) Select the times you are available (They will be highlighted in blue) <br> 
+        2.) To unselect a time, click it again <br>
+        3.) To submit your availabiltiy click "add my availability" <br>
+        4.) That's it! revist this page to view everyone's availability
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+          $("#nav-placeholder").load("/nav.html");
+        });
+    </script>
+  </body>
+</html>

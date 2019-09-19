@@ -1,74 +1,43 @@
-Assignment 3 - Persistence: Two-tier Web Application with Flat File Database, Express server, and CSS template
-===
+### When To Meet (2.0) - http://a3-jgerulskis.glitch.me
+This project is a continuation of A2, hence a lot of the technical and design acheivements remain the same. In the previous iteration of this application there were numerous issues that I needed to address. For starters, I had the ability to show my application's event generation, but users weren't able to take advantage of it. Every time a new event was made it overrided the previous one. Now every new event is given a unique ID. The application can store as many events as it has memory for.
 
-Due: September 16th, by 11:59 AM.
+Another issue was the page redirection. After post requests were made, the site navigated to a success page. Now when events are made users are redirected right to the planning page. When you make a post request with your availabilty, the event planning page is refreshed.
 
-This assignnment continues where we left off, extending it to use the most popular Node.js server framework (express), a flat file database suitable for small applications (lowdb), and a CSS application framework / template of your choice (Boostrap, Material Design, Semantic UI, Pure etc.)
+### Requirements
+- **Server**: Created in express
+- **Results**: ViewEvent shows entire dataset for a specific event
+- **Add**: Create an event adds a JSON file
+- **Modify**: The viewEvent.html page allows users to modify the event JSON
+- **Delete**: GarbageCollector deletes expired events using node-schedule on every sunday. An event is expired if last planning date is more than 2 days before current date.
+- **Middleware**: Serve-Favicon, Express.Static, Body-Parser, Timeout
+- **Persistent Data Storage**: Lowdb to track event expiration and works closely with the GarbageCollector. Also use the file system to store event jsons.
+- **CSS Framework**: Bootstrap, Flatpickr (for date/time selector)
 
-
-Baseline Requirements
----
-
-Your application is required to implement the following functionalities:
-
-- a `Server`, created using Express (no alternatives will be accepted for this assignment)
-- a `Results` functionality which shows the entire dataset residing in the server's memory
-- a `Form/Entry` functionality which allows users to add, modify, and delete data items (must be all three!) associated with their user name / account.
-- Use of at least five [Express middleware packages](https://expressjs.com/en/resources/middleware.html). Explore! 
-- Basic authentication using the [Passport middleware](http://www.passportjs.org) for Express (this counts as one of your five middleware packages). We encourage using the Local strategy, but OAuth (Open Authentication) can also be used for additional technical achievement. The course staff cannot help you with the various flavors of OAuth strategies. YOU MUST PROVIDE US WITH ACCOUNT CREDENTIALS TO LOGIN TO YOUR APPLICATION IF YOU USE OAUTH. The course staff cannot be expected to have credentials for any particular OAuth service.
-- Persistent data storage in between server sessions. [lowdb](https://github.com/typicode/lowdb) is a suitable database package for this assignment and will be discussed in class.
-- Use of a [CSS framework or template](https://github.com/troxler/awesome-css-frameworks). This should do the bulk of your styling/CSS for you and be appropriate to your application. For example, don't use [NES.css](https://nostalgic-css.github.io/NES.css/) (which is awesome!) unless you're creating a game or some type of retro 80s site.
-
-Your application is required to demonstrate the use of the following concepts:
-
-HTML:
-- HTML input tags and form fields of various flavors (`<textarea>`, `<input>`, checkboxes, radio buttons etc.)
-- HTML that can display all data *for a particular authenticated user*. Note that this is different from the last assignnment, which required the display of all data in memory on the server.
-
-Note that it might make sense to have two simple pages for this assignment, one that handles login / authentication, and one that contains the rest of your application. For this assignment, it is acceptable to simply create new user accounts upon login if none exist, however, you must alert your users to this fact. If you're not using OAuth 
-
-CSS:
-- CSS styling should primarily be provided by your chosen template/framework. Oftentimes a great deal of care has been put into designing CSS templates; don't override their stylesheets unless you are extremely confident in your graphic design capabilities. The idea is to use CSS templates that give you a professional looking design aesthetic without requiring you to be a graphic designer yourself.
-
-JavaScript:
-- At minimum, a small amount of front-end JavaScript to get / fetch data from the server. See the [previous assignment](https://github.com/cs4241-19a/a2-shortstack) for reference.
-
-Node.js:
-- A server using Express, at least five pieces of Express middleware, and a persistent database (a flat file using lowdb is great).
-
-Deliverables
----
-
-Do the following to complete this assignment:
-
-1. Implement your project with the above requirements. A good potential starting point is to use the "hello-express" project template inside of Glitch; this appears as an option when you hit the "New Project" button. Use the work you did in the last assignment as a reference to implement functionality, as well as the notes from class on 9/9 and 9/12.
-2. If you developed your project locally, deploy your project to Glitch, and fill in the appropriate fields in your package.json file.
-3. Test your project to make sure that when someone goes to your main page on Glitch, it displays correctly.
-4. Ensure that your project has the proper naming scheme `a3-yourname` so we can find it.
-5. Fork this repository and modify the README to the specifications below. You do not need to include any of your project files in this repo (we will see those on Glitch), you only need to update and commit the README file.
-6. Create and submit a Pull Request to the original repo. Name the pull request using the following template: `a3-gitname-firstname-lastname`.
-
-Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
----
-
-## Your Web Application Title
-
-your glitch link e.g. http://a3-charlieroberts.glitch.me
-
-Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
-
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy / database you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why.
-  - include any modifications to the CSS framework you made via custom CSS you authored.
-- the five Express middleware packages you used and a short (one sentence) summary of what each one does.
-
-## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
-- **Tech Achievement 2**: I used over ten Express middleware packages, enabling me to create a server that...
+### Technical Achievements
+- **Tech Achievement 1**: 2 post request types (1 in eventCreationHandler.js, 1 in eventViewerHandler.js), one creates an event, another modifys the events availibilty (2 forms)
+- **Tech Achievement 2**: Front end and back end post request validation to prevent malicous intent ('FormValidation'). It mainly checks the input to make sure it is properly formatted.
+- **Tech Achievement 3**: Dynamically created table based on a event details JSON file (In eventViewerHandler.js)
+- **Tech Achievement 4**: Dynamically created tabled cell 'click' event callbacks utilizing closure (In eventViewerHandler.js)
+- **Tech Achievement 5**: The ability to create infinite events
+- **Tech Acheivement 6**: JQuery to bind UI elements to HTML, and dynamically inject navbar
+- **Tech Acheivement 7**: Used library MomentJS to do operation on DateTimes on the backend. Flatpicker gives the backend a range formatted like yyyy-mm-dd to yyyy-mm-dd. I convert that to an array of dates between the two. It is then given to the client when viewing the event like [yyyy-mm-dd, yyyy-mm-dd, yyyy-mm-dd, ....]
+- **Tech Acheivement 8**: Used file system on backend to make events persist as JSONs
+- **Tech Acheivement 9**: Garbage Collector removes old events using lowdb to track expiration.
+- **Tech Acheivement 10**: Used node-schedule module to schedule GC purge.
 
 ### Design/Evaluation Achievements
-- **Design Achievement 1**: I tested my application using screen reading software, and found that...
-- **Design Achievement 2**: I followed best practices for accessibility, including providing alt attributes for images and using semantic HTML. There are no `<div>` or `<span>` elements in my document.
-- **Design Achievement 3**: We tested the application with n=X users, finding that...
+- **Design Achievement 1**: Bootstrap CDN to quickly create layouts / navigation bar
+- **Design Achievement 2**: Used library Flatpickr to create the DateTime UIs on the event creation page. Used native UI on mobile browsers. Key to a user friendly mobile experience.
+- **Design Achievement 3**: Custom logo in top left of nav bar.
+- **Desgin Achievement 4**: On the event viewer page, the cells with some available people has a custom calculated alpha value intended to create a quick way to determine availabilty. Ex: a cell with 4/5 available people will be much less transperant than a cell with 1/5 availabilty. This makes it easy to view.
+- **Design Achievement 5**: Added a gradient background to the body of the html.
+- **Design Achievement 7**: CSS to cause form input fields to be horizontally centered on the page
+- **Design Achievement 8**: CSS to cause table cells of elements to appear side-by-side
+- **Design Achievement 9**: CSS defined in a maintainable, readable form, in external stylesheets 
+
+### Created with help from the following libraries
+
+Flatpickr     > https://flatpickr.js.org/getting-started/
+MomentJS      > https://momentjs.com/
+LowDB         > https://github.com/typicode/lowdb
+Node-scehdule > https://www.npmjs.com/package/node-schedule
